@@ -68,7 +68,7 @@
 
     function demoAjax() {
       AjaxWrapper.request({
-        url: 'http://localhost:3000/',
+        url: 'http://localhost:3000/customers',
         type: 'GET',
         success: function(data) {
           console.log("Success: ", data)
@@ -76,14 +76,25 @@
         fail: function() {
           console.log("ERROR")
         }
-      })
+      });
+
+      // miniqueryx.ajax({
+      //   url: 'http://localhost:3000/customers',
+      //   type: 'GET',
+      //   success: function(data) {
+      //     console.log("Success: ", data)
+      //   },
+      //   fail: function() {
+      //     console.log("ERROR")
+      //   }
+      // });
     }
 
     function demoMiniQuery() {
       // miniquery
-      miniquery("#eyed").hide()
+      miniquery(".klass").hide()
       setTimeout(function() {
-        miniquery("#eyed").show()
+        miniquery(".klass").show()
       }, 2000)
     }
 
