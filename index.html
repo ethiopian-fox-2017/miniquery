@@ -35,6 +35,7 @@
     <div class="container">
       <div id="eyed">id: eyed</div>
       <div class="klass">class: klass 1</div>
+      <div class="klass">class: klass 3</div>
       <a class="klass" href="#hello">Hello!</a>
       <div class="klass">class: klass 2</div>
     </div>
@@ -64,11 +65,12 @@
       EventDispatcher.on('.klass', 'click', function() {
         console.log("Awesome")
       })
-    }
 
+    }
+    //
     function demoAjax() {
       AjaxWrapper.request({
-        url: 'http://localhost:3000/',
+        url: 'http://localhost:8080/',
         type: 'GET',
         success: function(data) {
           console.log("Success: ", data)
@@ -78,21 +80,35 @@
         }
       })
     }
-
+    //
     function demoMiniQuery() {
       // miniquery
       miniquery("#eyed").hide()
       setTimeout(function() {
         miniquery("#eyed").show()
       }, 2000)
+      miniquery.ajax(
+        {
+          url: 'http://localhost:8080/',
+          type: 'GET',
+          success: function(data) {
+            console.log("Success: ", data)
+          },
+          fail: function() {
+            console.log("ERROR")
+          }
+        }
+      )
     }
 
-    function demoAlias() {
-      $("#eyed").hide()
-      setTimeout(function() {
-        $("#eyed").show()
-      }, 2000)
-    }
+    //
+    // function demoAlias() {
+    //   $("#eyed").hide()
+    //   setTimeout(function() {
+    //     $("#eyed").show()
+    //   }, 2000)
+    // }
+
   </script>
 
 </html>
