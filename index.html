@@ -10,7 +10,6 @@
       .container {
         font-size: 2em;
       }
-
       .shaded {
         color: gray;
       }
@@ -64,11 +63,12 @@
       EventDispatcher.on('.klass', 'click', function() {
         console.log("Awesome")
       })
+      EventDispatcher.trigger('.klass', 'click')
     }
 
     function demoAjax() {
       AjaxWrapper.request({
-        url: 'http://localhost:3000/',
+        url: 'http://localhost:8080/',
         type: 'GET',
         success: function(data) {
           console.log("Success: ", data)
@@ -85,6 +85,17 @@
       setTimeout(function() {
         miniquery("#eyed").show()
       }, 2000)
+      miniquery.ajax({
+        url: 'http://localhost:8080/',
+        type: 'GET',
+        success: function(data) {
+          console.log("Success: ", data)
+        },
+        fail: function() {
+          console.log("ERROR")
+        }
+      })
+
     }
 
     function demoAlias() {
