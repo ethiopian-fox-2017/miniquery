@@ -15,7 +15,7 @@
         color: gray;
       }
     </style>
-    <script src="lib/miniquery.js"></script>
+    <script src="./lib/miniquery.js"></script>
   </head>
 
   <body>
@@ -81,6 +81,7 @@
 
     function demoMiniQuery() {
       // miniquery
+      console.log(miniquery("#eyed"))
       miniquery("#eyed").hide()
       setTimeout(function() {
         miniquery("#eyed").show()
